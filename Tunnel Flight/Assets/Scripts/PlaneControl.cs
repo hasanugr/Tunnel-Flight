@@ -104,8 +104,7 @@ public class PlaneControl : MonoBehaviour
             {
                 Debug.Log("Yukarı Çarptı.!!");
                 
-                //rb.MovePosition(rb.position + new Vector3(0f, -5f, 0f));
-                rb.MovePosition(rb.position);
+                rb.MovePosition(rb.position + new Vector3(0f, -5f, 0f));
             }
             if (Vector3.Distance(contacts[i].point, bottomPoint.position) < 1f)
             {
