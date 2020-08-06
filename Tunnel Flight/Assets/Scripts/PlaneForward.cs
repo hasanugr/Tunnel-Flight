@@ -3,29 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneForward : MonoBehaviour
-{
+public class PlaneForward : MonoBehaviour {
     public float forceMult = 2000;
     private Rigidbody rb;
-    private float normalSpeed;
+    private float normalSpeed = 80f;    
+    private float thrust = 10f;
 
     // Start is called before the first frame update
-    private void Awake()
-    {
+    private void Awake() {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * Time.deltaTime * forceMult;
-        normalSpeed = rb.velocity.z;
+        //rb.velocity = transform.forward * Time.deltaTime * forceMult;
+        //normalSpeed = rb.velocity.z;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         //Debug.Log(rb.velocity.z + " < " + normalSpeed);
-        if (rb.velocity.z < normalSpeed)
-        {
-            //Debug.Log("Fixed.!!!");
-            rb.velocity = transform.forward * Time.deltaTime * forceMult;
+        if (rb.velocity.z < normalSpeed) {
+            // Debug.Log("Add Force !!!");
+            //rb.velocity = transform.forward * Time.deltaTime * forceMult;
+            rb.AddForce(transform.forward * thrust);
         }
     }
+
 
 }
