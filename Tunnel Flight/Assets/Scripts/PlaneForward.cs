@@ -16,7 +16,6 @@ public class PlaneForward : MonoBehaviour {
         //normalSpeed = rb.velocity.z;
     }
 
-    // Update is called once per frame
     void Update() {
         //Debug.Log(rb.velocity.z + " < " + normalSpeed);
         if (rb.velocity.z < normalSpeed) {
